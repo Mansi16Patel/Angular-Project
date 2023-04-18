@@ -1,0 +1,39 @@
+<div class="card-header">
+  <div class="row">
+    <div >
+      <h4> Manage Users</h4>
+    </div>
+  </div>
+</div><br/>
+    <h3 class="title">
+      Search: <input type="text" [(ngModel)]="searchValue"/>
+  </h3>
+ 
+  <div class="card-body">
+    <table class="table">
+      <thead>
+    <tr>
+      <th>UserName</th>
+      <th>Email</th>
+      <th>Password</th>
+      
+      <th>Actions</th>
+    </tr>
+  </thead>
+    <tr *ngFor="let u of users">
+    
+      <td *ngIf="u.username.toLowerCase().includes(searchValue)"> {{ u.username }} </td>
+      <td *ngIf="u.username.toLowerCase().includes(searchValue)"> {{ u.email }} </td>
+      <td *ngIf="u.username.toLowerCase().includes(searchValue)"> {{ u.password }} </td>
+      
+      <td *ngIf="u.username.toLowerCase().includes(searchValue)">
+        
+       <button (click)="delete(u)" class="btn btn-danger" style="background-color: rgb(168, 103, 107);">Delete</button> 
+      </td>
+    </tr>
+  </table>
+  <a routerLink="/adduser"
+  routerLinkActive="active" class="btn btn-primary" style="background-color: rgb(168, 103, 107);"
+  >Add Users</a>
+</div>
+

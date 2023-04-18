@@ -1,0 +1,39 @@
+<p>Add New User</p>
+<div>{{ errorMessage }}</div>
+<form  [formGroup]="userForm" (ngSubmit)="onSubmit()" >
+  
+ 
+  <div>
+    Username:
+    <input
+      type='text'
+      placeholder='Enter Username'
+      formControlName="username"
+    />
+  </div>
+  <div *ngIf="userForm.get('email')?.invalid">Username is required</div>
+  <div>
+    Email:
+    <input
+      type='text'
+      placeholder='Enter Email'
+      formControlName="email"
+    />
+  </div>
+  <div *ngIf="userForm.get('password')?.invalid">Email is required</div>
+
+  <div>
+    Password
+    <input
+      type='text'
+      placeholder='Enter Password'
+      formControlName="password"
+    />
+  </div>
+  <div *ngIf="userForm.get('body')?.invalid">Password is required</div>
+
+  
+
+ 
+  <input type='submit' value='Add User' />
+</form>
